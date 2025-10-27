@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cyx5mfbxrabuq" path="res://scenes/battle.gd" id="1_a12nh"]
 [ext_resource type="Texture2D" uid="uid://cp4iq5fd6j8be" path="res://art/background.png" id="1_dn72j"]
 [ext_resource type="Script" uid="uid://cdu5tlyk72uu4" path="res://addons/gecs/ecs/world.gd" id="2_lpir7"]
-[ext_resource type="PackedScene" uid="uid://dho1tbly3i36i" path="res://scenes/card_ui.tscn" id="2_th188"]
+[ext_resource type="PackedScene" uid="uid://1ohk7xpmuvib" path="res://entities/e_card_ui.tscn" id="3_6vh42"]
 [ext_resource type="Script" uid="uid://b3vi2ingux88g" path="res://addons/gecs/lib/system_group.gd" id="3_lpir7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dn72j"]
@@ -14,6 +14,8 @@ script = ExtResource("1_a12nh")
 
 [node name="World" type="Node" parent="."]
 script = ExtResource("2_lpir7")
+entity_nodes_root = NodePath("../EntityGroup")
+system_nodes_root = NodePath("../SystemGroup")
 metadata/_custom_type_script = "uid://cdu5tlyk72uu4"
 
 [node name="EntityGroup" type="Node" parent="."]
@@ -34,13 +36,7 @@ grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
 
-[node name="CardUI" parent="EntityGroup/BattleUI/Hand" instance=ExtResource("2_th188")]
-layout_mode = 2
-
-[node name="CardUI2" parent="EntityGroup/BattleUI/Hand" instance=ExtResource("2_th188")]
-layout_mode = 2
-
-[node name="CardUI3" parent="EntityGroup/BattleUI/Hand" instance=ExtResource("2_th188")]
+[node name="E_CardUI" parent="EntityGroup/BattleUI/Hand" instance=ExtResource("3_6vh42")]
 layout_mode = 2
 
 [node name="SystemGroup" type="Node" parent="."]
