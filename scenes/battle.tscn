@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6uhkbq1pyx30"]
+[gd_scene load_steps=9 format=3 uid="uid://b6uhkbq1pyx30"]
 
 [ext_resource type="Script" uid="uid://cyx5mfbxrabuq" path="res://scenes/battle.gd" id="1_a12nh"]
 [ext_resource type="Texture2D" uid="uid://cp4iq5fd6j8be" path="res://art/background.png" id="1_dn72j"]
 [ext_resource type="Script" uid="uid://cdu5tlyk72uu4" path="res://addons/gecs/ecs/world.gd" id="2_lpir7"]
 [ext_resource type="PackedScene" uid="uid://1ohk7xpmuvib" path="res://entities/e_card_ui.tscn" id="3_6vh42"]
 [ext_resource type="Script" uid="uid://b3vi2ingux88g" path="res://addons/gecs/lib/system_group.gd" id="3_lpir7"]
+[ext_resource type="PackedScene" uid="uid://dpd1rvp8mq5ik" path="res://observers/o_card_state_observer.tscn" id="5_6vh42"]
+[ext_resource type="PackedScene" uid="uid://ccb4xowrevuwp" path="res://observers/o_gui_input.tscn" id="6_4k1nj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dn72j"]
 size = Vector2(256, 100)
@@ -42,6 +44,10 @@ layout_mode = 2
 [node name="SystemGroup" type="Node" parent="."]
 script = ExtResource("3_lpir7")
 metadata/_custom_type_script = "uid://b3vi2ingux88g"
+
+[node name="OCardStateObserver" parent="SystemGroup" instance=ExtResource("5_6vh42")]
+
+[node name="OGuiInput" parent="SystemGroup" instance=ExtResource("6_4k1nj")]
 
 [node name="Background" type="Sprite2D" parent="."]
 modulate = Color(0.61339027, 0.61339027, 0.61339027, 1)

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccb4xowrevuwp"]
+
+[ext_resource type="Script" uid="uid://dmujki6a3nmav" path="res://observers/o_gui_input.gd" id="1_wrge1"]
+
+[node name="OGuiInput" type="Node"]
+script = ExtResource("1_wrge1")
+metadata/_custom_type_script = "uid://dd3umv3f8qyx5"
