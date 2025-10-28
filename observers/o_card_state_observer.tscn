@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dpd1rvp8mq5ik"]
 
-[ext_resource type="Script" uid="uid://dd3umv3f8qyx5" path="res://addons/gecs/ecs/observer.gd" id="1_7uqvl"]
+[ext_resource type="Script" uid="uid://djpbf2paq8mgx" path="res://observers/o_card_state_observer.gd" id="1_7uqvl"]
 
 [node name="OCardStateObserver" type="Node"]
 script = ExtResource("1_7uqvl")
