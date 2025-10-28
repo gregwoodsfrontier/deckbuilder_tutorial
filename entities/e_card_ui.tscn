@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://coqgv546oj5dt" path="res://entities/e_card_ui.gd" id="1_1n77c"]
 [ext_resource type="Theme" uid="uid://dv6w76kut4e0a" path="res://themes/main_theme.tres" id="1_qgj73"]
 [ext_resource type="Script" uid="uid://b6k13gc2m4e5s" path="res://addons/gecs/ecs/component.gd" id="2_obxhj"]
-[ext_resource type="Script" uid="uid://cs50t3qgxqmuu" path="res://components/props/c_debugColorRect.gd" id="3_5n7jy"]
+[ext_resource type="Script" uid="uid://cs50t3qgxqmuu" path="res://components/ui/props/c_debugColorRect.gd" id="3_5n7jy"]
 [ext_resource type="Script" uid="uid://bewkfy7tclaty" path="res://components/ui/tags/c_cardUI.gd" id="4_a3fy3"]
-[ext_resource type="Script" uid="uid://87b7s3v8i31u" path="res://components/props/c_debugLabel.gd" id="5_5n7jy"]
-[ext_resource type="Script" uid="uid://rlnlrsuh6vgn" path="res://components/props/c_dropPointDetector.gd" id="6_a3fy3"]
+[ext_resource type="Script" uid="uid://87b7s3v8i31u" path="res://components/ui/props/c_debugLabel.gd" id="5_5n7jy"]
+[ext_resource type="Script" uid="uid://rlnlrsuh6vgn" path="res://c_dropPointDetector.gd" id="6_a3fy3"]
 
 [sub_resource type="Resource" id="Resource_hua7m"]
 script = ExtResource("3_5n7jy")
