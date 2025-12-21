@@ -20,7 +20,7 @@ collision_layer = 2
 position = Vector2(128, 50)
 shape = SubResource("RectangleShape2D_dn72j")
 
-[node name="BattleUI" type="CanvasLayer" parent="."]
+[node name="BattleUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
 
 [node name="Hand" type="HBoxContainer" parent="BattleUI"]
 custom_minimum_size = Vector2(25, 30)
