@@ -9,3 +9,8 @@ func enter() -> void:
 	card_ui.color_rect.color = Color.WEB_GREEN
 	card_ui.label.text = "BASE"
 	card_ui.pivot_offset = Vector2.ZERO
+
+func on_gui_input(_event: InputEvent) -> void:
+	if _event.is_action_pressed("left_mouse"):
+		card_ui.pivot_offset = card_ui.get_global_mouse_position() - card_ui.global_position
+		transition_requested.emit(self, CardState.STATE.CLICKED)

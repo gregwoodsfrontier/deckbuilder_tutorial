@@ -1,9 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dho1tbly3i36i"]
+[gd_scene load_steps=10 format=3 uid="uid://dho1tbly3i36i"]
 
 [ext_resource type="Theme" uid="uid://dv6w76kut4e0a" path="res://themes/main_theme.tres" id="1_5x102"]
 [ext_resource type="Script" uid="uid://ddsbsspwtyyxo" path="res://scenes/card_ui.gd" id="1_e1hm3"]
 [ext_resource type="Script" uid="uid://bh28rl1mk6w02" path="res://scenes/card_ui/card_state_machine.gd" id="3_0ct6v"]
 [ext_resource type="Script" uid="uid://de25nnxihy0x4" path="res://scenes/card_ui/card_states/card_base_state.gd" id="4_sofqg"]
+[ext_resource type="Script" uid="uid://cqfbdbrc8qirw" path="res://scenes/card_ui/card_states/card_clicked_state.gd" id="5_sofqg"]
+[ext_resource type="Script" uid="uid://qlyk4nqiurbe" path="res://scenes/card_ui/card_states/card_dragging_state.gd" id="6_psgti"]
+[ext_resource type="Script" uid="uid://b2g2btgq1rovq" path="res://scenes/card_released_state.gd" id="7_2iqob"]
+[ext_resource type="Script" uid="uid://bht3wh4vb8ug8" path="res://scenes/card_ui/card_states/card_state.gd" id="8_8creq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5x102"]
 size = Vector2(25, 30)
@@ -18,7 +22,6 @@ offset_right = -231.0
 offset_bottom = -114.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 script = ExtResource("1_e1hm3")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -41,6 +44,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="DropPointDetector" type="Area2D" parent="."]
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DropPointDetector"]
 position = Vector2(12.5, 15)
@@ -53,4 +57,24 @@ metadata/_custom_type_script = "uid://bh28rl1mk6w02"
 
 [node name="CardBaseState" type="Node" parent="CardStateMachine"]
 script = ExtResource("4_sofqg")
+metadata/_custom_type_script = "uid://bht3wh4vb8ug8"
+
+[node name="CardClickedState" type="Node" parent="CardStateMachine"]
+script = ExtResource("5_sofqg")
+state = 1
+metadata/_custom_type_script = "uid://bht3wh4vb8ug8"
+
+[node name="CardDraggingState" type="Node" parent="CardStateMachine"]
+script = ExtResource("6_psgti")
+state = 2
+metadata/_custom_type_script = "uid://bht3wh4vb8ug8"
+
+[node name="CardReleasedState" type="Node" parent="CardStateMachine"]
+script = ExtResource("7_2iqob")
+state = 4
+metadata/_custom_type_script = "uid://bht3wh4vb8ug8"
+
+[node name="CardAimingState" type="Node" parent="CardStateMachine"]
+script = ExtResource("8_8creq")
+state = 3
 metadata/_custom_type_script = "uid://bht3wh4vb8ug8"
