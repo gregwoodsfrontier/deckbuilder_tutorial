@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b2m5s5xdiwj4c"]
-
-[ext_resource type="Script" uid="uid://uydfiayvxxxc" path="res://systems/card_state_manage_system.gd" id="1_k35di"]
-
-[node name="CardStateManageSystem" type="Node"]
-script = ExtResource("1_k35di")
-metadata/_custom_type_script = "uid://dyrahdwwpjpri"

@@ -1,12 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dho1tbly3i36i"]
+[gd_scene load_steps=6 format=3 uid="uid://dho1tbly3i36i"]
 
 [ext_resource type="Theme" uid="uid://dv6w76kut4e0a" path="res://themes/main_theme.tres" id="1_5x102"]
 [ext_resource type="Script" uid="uid://ddsbsspwtyyxo" path="res://scenes/card_ui.gd" id="1_e1hm3"]
-[ext_resource type="Script" uid="uid://c1k3lrts0k3yu" path="res://scenes/fsm/card_fsm.gd" id="3_birkm"]
-[ext_resource type="Script" uid="uid://bcapy4ph027hb" path="res://scenes/fsm/comp/card_base_state.gd" id="4_sofqg"]
-[ext_resource type="Script" uid="uid://b3mqjlfhupnpl" path="res://scenes/fsm/comp/card_state.gd" id="5_psgti"]
-[ext_resource type="Script" uid="uid://5dlgqdpvkgkb" path="res://scenes/fsm/comp/card_clicked_state.gd" id="5_xou0u"]
-[ext_resource type="Script" uid="uid://dfhk7acwwh0xo" path="res://scenes/fsm/comp/card_dragging_state.gd" id="6_xou0u"]
+[ext_resource type="Script" uid="uid://bh28rl1mk6w02" path="res://scenes/card_ui/card_state_machine.gd" id="3_0ct6v"]
+[ext_resource type="Script" uid="uid://de25nnxihy0x4" path="res://scenes/card_ui/card_states/card_base_state.gd" id="4_sofqg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5x102"]
 size = Vector2(25, 30)
@@ -21,6 +18,7 @@ offset_right = -231.0
 offset_bottom = -114.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_e1hm3")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -48,30 +46,11 @@ vertical_alignment = 1
 position = Vector2(12.5, 15)
 shape = SubResource("RectangleShape2D_5x102")
 
-[node name="CardFiniteStateMachine" type="Node" parent="."]
-script = ExtResource("3_birkm")
-metadata/_custom_type_script = "uid://c1k3lrts0k3yu"
+[node name="CardStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_0ct6v")
+initial_state = NodePath("CardBaseState")
+metadata/_custom_type_script = "uid://bh28rl1mk6w02"
 
-[node name="CardBaseState" type="Node" parent="CardFiniteStateMachine"]
+[node name="CardBaseState" type="Node" parent="CardStateMachine"]
 script = ExtResource("4_sofqg")
-metadata/_custom_type_script = "uid://bcapy4ph027hb"
-
-[node name="CardClickedState" type="Node" parent="CardFiniteStateMachine"]
-script = ExtResource("5_xou0u")
-state = 1
-metadata/_custom_type_script = "uid://b3mqjlfhupnpl"
-
-[node name="CardDraggingState" type="Node" parent="CardFiniteStateMachine"]
-script = ExtResource("6_xou0u")
-state = 2
-metadata/_custom_type_script = "uid://b3mqjlfhupnpl"
-
-[node name="CardReleasedState" type="Node" parent="CardFiniteStateMachine"]
-script = ExtResource("5_psgti")
-state = 4
-metadata/_custom_type_script = "uid://b3mqjlfhupnpl"
-
-[node name="CardAimingState" type="Node" parent="CardFiniteStateMachine"]
-script = ExtResource("5_psgti")
-state = 3
-metadata/_custom_type_script = "uid://b3mqjlfhupnpl"
+metadata/_custom_type_script = "uid://bht3wh4vb8ug8"
