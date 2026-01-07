@@ -9,6 +9,7 @@ signal reparent_requested(card_ui: CardUI)
 @onready var label: Label = $Label
 @onready var drop_point_detector: Area2D = $DropPointDetector
 @onready var card_finite_state_machine: CardStateMachine = $CardStateMachine
+@onready var targets: Array[Node] = []
 
 func _set_card(value: Card) -> void:
 	if not is_node_ready():
@@ -25,6 +26,8 @@ func _ready() -> void:
 	gui_input.connect(_on_gui_input)
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
+	drop_point_detector.area_entered.connect(_on_drop_point_detector_area_entered)
+	drop_point_detector.area_exited.connect(_on_drop_point_detector_area_exited)
 
 func _input(event: InputEvent) -> void:
 	card_finite_state_machine.on_input(event)
@@ -37,3 +40,10 @@ func _on_mouse_entered() -> void:
 
 func _on_mouse_exited() -> void:
 	card_finite_state_machine.on_mouse_exited()
+
+func _on_drop_point_detector_area_entered(area: Area2D) -> void:
+	if not targets.has(area):
+		targets.append(area)
+
+func _on_drop_point_detector_area_exited(area: Area2D) -> void:
+	targets.erase(area)
