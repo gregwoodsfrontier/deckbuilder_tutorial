@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dho1tbly3i36i"]
+[gd_scene format=3 uid="uid://dho1tbly3i36i"]
 
 [ext_resource type="Theme" uid="uid://dv6w76kut4e0a" path="res://themes/main_theme.tres" id="1_5x102"]
 [ext_resource type="Script" uid="uid://ddsbsspwtyyxo" path="res://scenes/card_ui.gd" id="1_e1hm3"]
@@ -6,13 +6,13 @@
 [ext_resource type="Script" uid="uid://de25nnxihy0x4" path="res://scenes/card_ui/card_states/card_base_state.gd" id="4_sofqg"]
 [ext_resource type="Script" uid="uid://cqfbdbrc8qirw" path="res://scenes/card_ui/card_states/card_clicked_state.gd" id="5_sofqg"]
 [ext_resource type="Script" uid="uid://qlyk4nqiurbe" path="res://scenes/card_ui/card_states/card_dragging_state.gd" id="6_psgti"]
-[ext_resource type="Script" uid="uid://b2g2btgq1rovq" path="res://scenes/card_released_state.gd" id="7_2iqob"]
-[ext_resource type="Script" uid="uid://bht3wh4vb8ug8" path="res://scenes/card_ui/card_states/card_state.gd" id="8_8creq"]
+[ext_resource type="Script" uid="uid://b2g2btgq1rovq" path="res://scenes/card_ui/card_states/card_released_state.gd" id="7_2iqob"]
+[ext_resource type="Script" uid="uid://uuejtb71fp4y" path="res://scenes/card_ui/card_states/card_aiming_state.gd" id="8_2iqob"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5x102"]
 size = Vector2(25, 30)
 
-[node name="CardUI" type="Control"]
+[node name="CardUI" type="Control" unique_id=1125900120]
 custom_minimum_size = Vector2(25, 30)
 layout_mode = 3
 anchors_preset = 15
@@ -24,14 +24,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e1hm3")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2033896480]
 layout_mode = 0
 offset_right = 25.0
 offset_bottom = 30.0
 mouse_filter = 2
 color = Color(0.10747976, 0.10747973, 0.10747973, 1)
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1623883258]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -43,39 +43,39 @@ text = "state"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DropPointDetector" type="Area2D" parent="."]
+[node name="DropPointDetector" type="Area2D" parent="." unique_id=2045147822]
 collision_mask = 2
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DropPointDetector"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropPointDetector" unique_id=1997086725]
 position = Vector2(12.5, 15)
 shape = SubResource("RectangleShape2D_5x102")
 
-[node name="CardStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+[node name="CardStateMachine" type="Node" parent="." unique_id=1533291921 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_0ct6v")
 initial_state = NodePath("CardBaseState")
 metadata/_custom_type_script = "uid://bh28rl1mk6w02"
 
-[node name="CardBaseState" type="Node" parent="CardStateMachine"]
+[node name="CardBaseState" type="Node" parent="CardStateMachine" unique_id=1590062950]
 script = ExtResource("4_sofqg")
 metadata/_custom_type_script = "uid://bht3wh4vb8ug8"
 
-[node name="CardClickedState" type="Node" parent="CardStateMachine"]
+[node name="CardClickedState" type="Node" parent="CardStateMachine" unique_id=1966214060]
 script = ExtResource("5_sofqg")
 state = 1
 metadata/_custom_type_script = "uid://bht3wh4vb8ug8"
 
-[node name="CardDraggingState" type="Node" parent="CardStateMachine"]
+[node name="CardDraggingState" type="Node" parent="CardStateMachine" unique_id=1874860118]
 script = ExtResource("6_psgti")
 state = 2
 metadata/_custom_type_script = "uid://bht3wh4vb8ug8"
 
-[node name="CardReleasedState" type="Node" parent="CardStateMachine"]
+[node name="CardReleasedState" type="Node" parent="CardStateMachine" unique_id=28892306]
 script = ExtResource("7_2iqob")
 state = 4
 metadata/_custom_type_script = "uid://bht3wh4vb8ug8"
 
-[node name="CardAimingState" type="Node" parent="CardStateMachine"]
-script = ExtResource("8_8creq")
+[node name="CardAimingState" type="Node" parent="CardStateMachine" unique_id=600946381]
+script = ExtResource("8_2iqob")
 state = 3
 metadata/_custom_type_script = "uid://bht3wh4vb8ug8"

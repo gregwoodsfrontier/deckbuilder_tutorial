@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b6uhkbq1pyx30"]
+[gd_scene format=3 uid="uid://b6uhkbq1pyx30"]
 
 [ext_resource type="Texture2D" uid="uid://cp4iq5fd6j8be" path="res://art/background.png" id="1_dn72j"]
 [ext_resource type="Script" uid="uid://cn7st7pecrivm" path="res://scenes/ui/hand.gd" id="2_p1qf1"]
@@ -13,36 +13,36 @@ size = Vector2(256, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4k1nj"]
 
-[node name="Battle" type="Node2D"]
+[node name="Battle" type="Node2D" unique_id=2012293558]
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="." unique_id=2103240666]
 modulate = Color(0.61339027, 0.61339027, 0.61339027, 1)
 texture = ExtResource("1_dn72j")
 centered = false
 
-[node name="CardDropArea" type="Area2D" parent="."]
+[node name="CardDropArea" type="Area2D" parent="." unique_id=1356423992]
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea" unique_id=1039885467]
 position = Vector2(128, 50)
 shape = SubResource("RectangleShape2D_dn72j")
 debug_color = Color(0, 0.24298613, 0.2875881, 0.41960785)
 
-[node name="Enemy" type="Area2D" parent="."]
+[node name="Enemy" type="Area2D" parent="." unique_id=1918440373]
 position = Vector2(212, 81)
 collision_layer = 4
 
-[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
+[node name="Sprite2D" type="Sprite2D" parent="Enemy" unique_id=1929622668]
 texture = ExtResource("6_6vh42")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy" unique_id=989247998]
 shape = SubResource("RectangleShape2D_4k1nj")
 
-[node name="CardTargetSelector" parent="." instance=ExtResource("3_4k1nj")]
+[node name="CardTargetSelector" parent="." unique_id=77454302 instance=ExtResource("3_4k1nj")]
 
-[node name="BattleUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
+[node name="BattleUI" type="CanvasLayer" parent="." unique_id=252296969 groups=["ui_layer"]]
 
-[node name="Hand" type="HBoxContainer" parent="BattleUI"]
+[node name="Hand" type="HBoxContainer" parent="BattleUI" unique_id=319868976]
 custom_minimum_size = Vector2(25, 30)
 anchors_preset = 7
 anchor_left = 0.5
@@ -57,14 +57,14 @@ grow_vertical = 0
 alignment = 1
 script = ExtResource("2_p1qf1")
 
-[node name="CardUI" parent="BattleUI/Hand" instance=ExtResource("2_th188")]
+[node name="CardUI" parent="BattleUI/Hand" unique_id=1619950311 instance=ExtResource("2_th188")]
 layout_mode = 2
 card = ExtResource("4_lpir7")
 
-[node name="CardUI2" parent="BattleUI/Hand" instance=ExtResource("2_th188")]
+[node name="CardUI2" parent="BattleUI/Hand" unique_id=1940984226 instance=ExtResource("2_th188")]
 layout_mode = 2
 card = ExtResource("4_lpir7")
 
-[node name="CardUI3" parent="BattleUI/Hand" instance=ExtResource("2_th188")]
+[node name="CardUI3" parent="BattleUI/Hand" unique_id=75492443 instance=ExtResource("2_th188")]
 layout_mode = 2
 card = ExtResource("5_6vh42")
