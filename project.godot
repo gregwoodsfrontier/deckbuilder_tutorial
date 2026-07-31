@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 ECS="*uid://dfqwl5njvdnmq"
+Events="*uid://dxopn45vtf51x"
 
 [display]
 
