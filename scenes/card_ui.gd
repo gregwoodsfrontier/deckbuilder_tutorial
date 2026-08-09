@@ -5,6 +5,11 @@ signal reparent_requested(card_ui: CardUI)
 
 @export var card: Card : set = _set_card
 
+var parent: Control
+var tween_transition : Tween.TransitionType = Tween.TRANS_CIRC
+var tween_easings : Tween.EaseType = Tween.EASE_OUT
+var tween : Tween
+
 @onready var color_rect: ColorRect = $ColorRect
 @onready var label: Label = $Label
 @onready var drop_point_detector: Area2D = $DropPointDetector
@@ -48,5 +53,7 @@ func _on_drop_point_detector_area_entered(area: Area2D) -> void:
 func _on_drop_point_detector_area_exited(area: Area2D) -> void:
 	targets.erase(area)
 
-func animate_to_position(_target_vector: Vector2, time: float) -> void:
-	pass
+func animate_to_position(_target_vector: Vector2, _time: float) -> void:
+	tween = create_tween().set_trans(tween_transition).set_ease(tween_easings)
+	tween.tween_property(self, "global_position", _target_vector, _time)
+	

@@ -4,7 +4,7 @@ const MOUSE_Y_SNAPBACK_THRESHOLD := 138
 
 func enter() -> void:
 	card_ui.color_rect.color = Color.WEB_PURPLE
-	card_ui.state.text = "AIMING"
+	card_ui.label.text = "AIMING"
 	# Clear exisitng array targets to ensure the ones we need.
 	card_ui.targets.clear()
 	
